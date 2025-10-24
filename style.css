@@ -7,11 +7,10 @@
     --text-color-secondary: #a0a0a0; /* Gray for subtle text */
 
     /* --- FONT DEFINITIONS WITH CLS FIX --- */
-    /* By defining fallback fonts with size-adjust, we prevent layout shift when the webfont loads */
-    --font-family-headings: 'Poppins', 'Arial', sans-serif;
-    --font-family-body: 'Poppins', 'Helvetica', sans-serif;
-
-    /* Advanced: These values help match the fallback font size to Poppins */
+    /* Define the webfont */
+    --font-family-main: 'Poppins', 'Poppins Fallback', sans-serif;
+    
+    /* Define the fallback with size-adjust to match Poppins */
     @font-face {
       font-family: 'Poppins Fallback';
       size-adjust: 103%;
@@ -30,7 +29,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; overflow-x: hidden; }
 body { 
-    font-family: 'Poppins Fallback', var(--font-family-body); /* Apply fallback first */
+    font-family: var(--font-family-main); /* Apply the font stack here */
     background-color: var(--background-color); 
     color: var(--text-color); 
     line-height: 1.7; 
@@ -42,10 +41,10 @@ body {
 
 /* --- HEADER & NAVIGATION --- */
 .site-header nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 5%; background-color: var(--background-color); border-bottom: 1px solid #2a2a2a; }
-.logo { font-family: 'Poppins Fallback', var(--font-family-headings); font-weight: 700; font-size: 1.5rem; color: #fff; }
+.logo { font-weight: 700; font-size: 1.5rem; color: #fff; }
 .nav-links { display: flex; justify-content: space-around; list-style: none; }
 .nav-links li { margin: 0 1rem; }
-.nav-links a { font-family: 'Poppins Fallback', var(--font-family-headings); font-weight: 600; color: var(--text-color); text-decoration: none; font-size: 1rem; position: relative; transition: color 0.3s ease; }
+.nav-links a { font-weight: 600; color: var(--text-color); text-decoration: none; font-size: 1rem; position: relative; transition: color 0.3s ease; }
 .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; background: var(--primary-color); bottom: -5px; left: 50%; transform: translateX(-50%); transition: width 0.3s ease; }
 .nav-links a:hover { color: #fff; }
 .nav-links a:hover::after { width: 100%; }
@@ -55,14 +54,15 @@ body {
 /* --- HERO SECTION (CLS OPTIMIZED) --- */
 .hero { 
     position: relative; 
-    min-height: 500px; /* Use a fixed min-height to reserve space */
-    height: 85vh; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
     text-align: center; 
     color: #fff; 
     overflow: hidden;
+    width: 100%;
+    aspect-ratio: 1000 / 563; /* Stable aspect ratio */
+    max-height: 85vh;
 }
 .hero-image-bg { 
     position: absolute; 
@@ -75,26 +75,26 @@ body {
     z-index: -2;
 }
 .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: -1; }
-.hero-content h1 { font-family: 'Poppins Fallback', var(--font-family-headings); font-weight: 700; font-size: 4rem; margin-bottom: 1rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+.hero-content h1 { font-weight: 700; font-size: 4rem; margin-bottom: 1rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
 .hero-content p { font-size: 1.2rem; font-weight: 300; max-width: 800px; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
 
 /* --- ARTICLE STYLES --- */
 .article-container { max-width: 800px; margin: 4rem auto; padding: 0 2rem; }
 .article-container .intro-paragraph { font-size: 1.2rem; font-weight: 300; color: #f0f0f0; margin-bottom: 2rem; border-left: 3px solid var(--primary-color); padding-left: 1.5rem; }
-.article-container h2 { font-family: 'Poppins Fallback', var(--font-family-headings); font-weight: 600; font-size: 2.5rem; margin-top: 4rem; margin-bottom: 1.5rem; color: #fff; border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; line-height: 1.2; }
-.article-container h3 { font-family: 'Poppins Fallback', var(--font-family-headings); font-weight: 600; font-size: 1.8rem; margin-top: 2.5rem; margin-bottom: 1rem; color: #f0f0f0; }
+.article-container h2 { font-weight: 600; font-size: 2.5rem; margin-top: 4rem; margin-bottom: 1.5rem; color: #fff; border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; line-height: 1.2; }
+.article-container h3 { font-weight: 600; font-size: 1.8rem; margin-top: 2.5rem; margin-bottom: 1rem; color: #f0f0f0; }
 .article-container strong { color: var(--primary-color); font-weight: 600; }
 
 /* --- FAQ SECTION --- */
 .faq-container { margin-top: 2rem; }
 .faq-item { background-color: var(--surface-color); border-radius: 10px; padding: 1.5rem; margin-bottom: 1rem; border-left: 3px solid var(--primary-color); }
-.faq-item .faq-question { font-family: 'Poppins Fallback', var(--font-family-headings); font-weight: 600; font-size: 1.3rem; margin: 0 0 0.5rem 0; color: #fff; }
+.faq-item .faq-question { font-weight: 600; font-size: 1.3rem; margin: 0 0 0.5rem 0; color: #fff; }
 .faq-item .faq-answer { font-size: 1rem; margin-bottom: 0; color: var(--text-color-secondary); }
 
 /* --- AUTHOR BIO SECTION --- */
 .author-bio { margin-top: 5rem; padding: 2.5rem; background-color: var(--surface-color); border-radius: 15px; display: flex; align-items: center; gap: 2rem; border: 1px solid #2a2a2a; }
 .author-bio img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-color); }
-.author-bio h3 { font-family: 'Poppins Fallback', var(--font-family-headings); font-weight: 600; margin-top: 0; margin-bottom: 0.5rem; font-size: 1.5rem; color: #fff; }
+.author-bio h3 { font-weight: 600; margin-top: 0; margin-bottom: 0.5rem; font-size: 1.5rem; color: #fff; }
 .author-bio p { font-size: 0.95rem; color: var(--text-color-secondary); margin-bottom: 1rem; }
 .author-bio .social-links a { color: var(--text-color-secondary); font-size: 1.5rem; margin-right: 1.5rem; transition: color 0.3s ease, transform 0.3s ease; }
 .author-bio .social-links a:hover { color: var(--primary-color); transform: scale(1.1); }
@@ -137,7 +137,7 @@ figcaption {
     .nav-links li { opacity: 0; }
     .burger { display: block; z-index: 101; }
     
-    .hero { min-height: 400px; height: 50vh; }
+    .hero { max-height: 50vh; }
     .hero-content h1 { font-size: 2.5rem; }
     .hero-content p { font-size: 1rem; }
     .article-container { padding: 0 1rem; }
