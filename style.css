@@ -42,7 +42,7 @@ body { font-family: sans-serif; font-family: var(--font-family); background-colo
     
     /* This height is now consistent for ALL screen sizes */
     height: 40vh;
-    min-height: 380px; 
+    min-height: 350px; 
 }
 .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 0; }
 .hero-content {
@@ -125,7 +125,7 @@ figcaption {
     .burger { display: block; z-index: 101; }
     
     /* The conflicting .hero rule has been REMOVED from here */
-.hero {min-height: 250px; }
+
     .hero-content h1 { font-size: 2.5rem; }
     .hero-content p { font-size: 1rem; }
     .article-container { padding: 0 1rem; }
@@ -151,3 +151,4 @@ figcaption {
     from { opacity: 0; transform: translateX(50px); }
     to { opacity: 1; transform: translateX(0px); }
 }
+
