@@ -48,8 +48,7 @@ body { font-family: var(--font-family); background-color: var(--background-color
     text-align: center; 
     color: #fff; 
     overflow: hidden;
-    /* This is the new line that fixes CLS */
-    aspect-ratio: 1000 / 563;
+   
 }
 .hero-image-bg { 
     position: absolute; 
@@ -154,6 +153,7 @@ figcaption {
     to { opacity: 1; transform: translateX(0px); }
 
 }
+
 
 
 
