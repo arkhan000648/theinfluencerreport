@@ -10,18 +10,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; overflow-x: hidden; }
-body { font-family: var(--font-family); background-color: var(--background-color); color: var(--text-color); line-height: 1.7; overflow-x: hidden; }
-
-
-@font-face {
-  font-family: 'fontello';
-  src: url('../font/fontello.woff2?2346267') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap; /* This is the new, required line */
-}
-
-
+body { font-family: sans-serif; font-family: var(--font-family); background-color: var(--background-color); color: var(--text-color); line-height: 1.7; overflow-x: hidden; }
 
 /* --- PROGRESS BAR --- */
 .progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 4px; background: linear-gradient(90deg, var(--primary-color), #0077b6); z-index: 1000; transition: width 0.1s linear; }
@@ -38,17 +27,19 @@ body { font-family: var(--font-family); background-color: var(--background-color
 .burger { display: none; cursor: pointer; }
 .burger div { width: 25px; height: 3px; background-color: var(--text-color); margin: 5px; transition: all 0.3s ease; }
 
-/* --- HERO SECTION --- */
+/* --- HERO SECTION (CLS OPTIMIZED) --- */
 .hero { 
     position: relative; 
-    height: 85vh; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
     text-align: center; 
     color: #fff; 
     overflow: hidden;
-   
+    /* THIS IS THE KEY FIX: Let aspect-ratio control the height */
+    width: 100%;
+    aspect-ratio: 1000 / 563; /* Using the dimensions of your desktop image */
+    max-height: 85vh; /* Sets a max height for very tall screens, but doesn't cause CLS */
 }
 .hero-image-bg { 
     position: absolute; 
@@ -126,7 +117,7 @@ figcaption {
     .nav-links li { opacity: 0; }
     .burger { display: block; z-index: 101; }
     
-    .hero { height: 40vh; }
+    .hero { max-height: 50vh; /* We REMOVED the height: 40vh rule */ }
     .hero-content h1 { font-size: 2.5rem; }
     .hero-content p { font-size: 1rem; }
     .article-container { padding: 0 1rem; }
@@ -151,9 +142,4 @@ figcaption {
 @keyframes navLinkFade {
     from { opacity: 0; transform: translateX(50px); }
     to { opacity: 1; transform: translateX(0px); }
-
 }
-
-
-
-
