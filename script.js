@@ -1,17 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Reading Progress Bar Logic ---
+    // --- Optimized Reading Progress Bar Logic ---
     const progressBar = document.getElementById('progressBar');
-    
+    let ticking = false; // A flag to prevent the scroll event from firing too often
+
     const updateProgressBar = () => {
         const { scrollTop, scrollHeight } = document.documentElement;
         const scrollableHeight = scrollHeight - window.innerHeight;
         const scrollPercent = (scrollTop / scrollableHeight) * 100;
         
         progressBar.style.width = `${scrollPercent}%`;
+        ticking = false;
     };
     
-    window.addEventListener('scroll', updateProgressBar);
+    window.addEventListener('scroll', () => {
+        // Only run the update function if not already waiting for an animation frame
+        if (!ticking) {
+            window.requestAnimationFrame(updateProgressBar);
+            ticking = true;
+        }
+    });
 
     // --- Mobile Navigation Logic ---
     const burger = document.querySelector('.burger');
@@ -21,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     burger.addEventListener('click', () => {
         // Toggle Nav
         nav.classList.toggle('nav-active');
+        const isActive = nav.classList.contains('nav-active');
 
         // Animate Links
         navLinks.forEach((link, index) => {
@@ -33,8 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Burger Animation
         burger.classList.toggle('toggle');
+        
+        // --- ACCESSIBILITY IMPROVEMENT ---
+        // Update the ARIA attribute to reflect the menu's state
+        burger.setAttribute('aria-expanded', isActive);
+        burger.setAttribute('aria-label', isActive ? 'Close navigation menu' : 'Open navigation menu');
     });
-
 
     // --- Scroll Animation Logic using Intersection Observer ---
     const animatedElements = document.querySelectorAll('[data-animate]');
