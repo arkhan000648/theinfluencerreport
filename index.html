@@ -10,8 +10,10 @@
     <link rel="canonical" href="https://theinfluencerreport.org/">
     <link rel="icon" href="/theinfluencerreporticon.png" type="image/x-icon">
 
-    <!-- PERFORMANCE: Preload the LCP Image and Critical Fonts -->
-    <link rel="preload" as="image" href="images/hero-fallback-mobile-large.webp">
+    <!-- PERFORMANCE: Preload the LCP Image with high priority -->
+    <link rel="preload" as="image" href="images/hero-fallback-mobile-large.webp" fetchpriority="high">
+    
+    <!-- PERFORMANCE: Preload Critical Fonts -->
     <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1xlFd2JQEk.woff2" as="font" type="font/woff2" crossorigin>
 
@@ -19,9 +21,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- PERFORMANCE: Inlined Critical CSS -->
+    <!-- PERFORMANCE: Inlined Critical CSS with Font Metric Overrides to prevent CLS -->
     <style>
-      @font-face{font-family:Poppins;font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z1xlFd2JQEk.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Poppins;font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Poppins;font-style:normal;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlFd2JQEk.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Poppins;font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1xlFd2JQEk.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}:root{--primary-color:#00aaff;--background-color:#121212;--surface-color:#1e1e1e;--text-color:#e0e0e0;--text-color-secondary:#a0a0a0;--font-family:'Poppins',sans-serif}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;overflow-x:hidden}body{font-family:sans-serif;font-family:var(--font-family);background-color:var(--background-color);color:var(--text-color);line-height:1.7;overflow-x:hidden}.progress-bar{position:fixed;top:0;left:0;width:0;height:4px;background:linear-gradient(90deg,var(--primary-color),#0077b6);z-index:1000;transition:width .1s linear}.site-header nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 5%;background-color:var(--background-color);border-bottom:1px solid #2a2a2a}.logo{font-weight:700;font-size:1.5rem;color:#fff}.nav-links{display:flex;justify-content:space-around;list-style:none}.nav-links li{margin:0 1rem}.nav-links a{color:var(--text-color);text-decoration:none;font-weight:600;font-size:1rem;position:relative;transition:color .3s ease}.burger,.nav-links a:hover{color:#fff}.burger{display:none;cursor:pointer}.burger div{width:25px;height:3px;background-color:var(--text-color);margin:5px;transition:all .3s ease}.hero-content h1{font-size:4rem;font-weight:700;margin-bottom:1rem;text-shadow:2px 2px 10px rgba(0,0,0,.5)}.hero-content p{font-size:1.2rem;font-weight:300;max-width:800px;text-shadow:1px 1px 5px rgba(0,0,0,.5)}[data-animate]{opacity:0;transition:opacity .8s ease-out}[data-animate].is-visible{opacity:1}
+      /* --- FONT-FACE RULES TO PREVENT LAYOUT SHIFT --- */
+      @font-face{font-family:'Poppins Fallback';src:local('Arial');ascent-override:90%;descent-override:22%;line-gap-override:0%;size-adjust:104%}
+      @font-face{font-family:Poppins;font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z1xlFd2JQEk.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+      @font-face{font-family:Poppins;font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+      @font-face{font-family:Poppins;font-style:normal;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlFd2JQEk.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+      @font-face{font-family:Poppins;font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1xlFd2JQEk.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+      
+      /* --- CRITICAL CSS --- */
+      :root{--primary-color:#00aaff;--background-color:#121212;--surface-color:#1e1e1e;--text-color:#e0e0e0;--text-color-secondary:#a0a0a0;--font-family:'Poppins','Poppins Fallback',sans-serif}
+      *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;overflow-x:hidden}body{font-family:var(--font-family);background-color:var(--background-color);color:var(--text-color);line-height:1.7;overflow-x:hidden}.progress-bar{position:fixed;top:0;left:0;width:0;height:4px;background:linear-gradient(90deg,var(--primary-color),#0077b6);z-index:1000;transition:width .1s linear}.site-header nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 5%;background-color:var(--background-color);border-bottom:1px solid #2a2a2a}.logo{font-weight:700;font-size:1.5rem;color:#fff}.nav-links{display:flex;justify-content:space-around;list-style:none}.nav-links li{margin:0 1rem}.nav-links a{color:var(--text-color);text-decoration:none;font-weight:600;font-size:1rem;position:relative;transition:color .3s ease}.burger,.nav-links a:hover{color:#fff}.burger{display:none;cursor:pointer}.burger div{width:25px;height:3px;background-color:var(--text-color);margin:5px;transition:all .3s ease}.hero-content h1{font-size:4rem;font-weight:700;margin-bottom:1rem;text-shadow:2px 2px 10px rgba(0,0,0,.5)}.hero-content p{font-size:1.2rem;font-weight:300;max-width:800px;text-shadow:1px 1px 5px rgba(0,0,0,.5)}[data-animate]{opacity:0;transition:opacity .8s ease-out}[data-animate].is-visible{opacity:1}
     </style>
 
     <!-- PERFORMANCE: Asynchronously load the non-critical CSS files -->
@@ -79,6 +90,7 @@
 
     <main>
         <section class="hero">
+            <!-- Image is now a pure CSS background, no HTML tag needed here -->
             <div class="hero-overlay"></div>
             <div class="hero-content">
                 <h1 data-animate>Influencers Gone Wild</h1>
@@ -86,8 +98,9 @@
             </div>
         </section>
 
+    <!-- Main Article Content -->
     <article class="article-container">
-        <p class="intro-paragraph">
+        <p class="intro-paragraph" data-animate>
                 In the hyper-connected landscape of social media, influencers have emerged as the new titans of culture. They are the entrepreneurs, the trendsetters, and for millions, the ultimate role models. Yet, beneath the glossy surface of sponsored posts and meticulously curated lifestyles, a darker, more chaotic trend is growing: the phenomenon of "influencers gone wild."
             </p>
             <p data-animate>
@@ -200,6 +213,7 @@
                 The phenomenon of influencers gone wild serves as a powerful cautionary tale. It reveals the dark side of a world obsessed with online fame, reminding us that in the digital age, the most valuable assets are not likes or followers, but trust and credibility.
             </p>
             
+            <!-- **NEW SECTION FOR ADDED VALUE** -->
             <h2 data-animate>How to Navigate Influencer Culture Safely & Ethically</h2>
             <p data-animate>Understanding the problem is the first step. The next is learning how to navigate this complex world, whether you're a consumer or a creator.</p>
             <h3 data-animate>For the Audience: Be a Critical Consumer</h3>
@@ -215,6 +229,7 @@
                 <li><strong>Build a Community, Not Just an Audience:</strong> Focus on genuine engagement and providing real value to your followers. A loyal community will support you long-term, far beyond a single viral moment.</li>
             </ul>
 
+            <!-- **NEW SEO-OPTIMIZED FAQ SECTION** -->
             <h2 data-animate>Frequently Asked Questions</h2>
             <div class="faq-container">
                 <div class="faq-item" data-animate>
@@ -231,6 +246,7 @@
                 </div>
             </div>
 
+            <!-- Ultra-Modern Author Bio Section -->
             <section class="author-bio" data-animate>
                 <img src="images/Md-Ashikuzzaman.webp" 
                      alt="Photo of the author, Md Ashikuzzaman" 
@@ -269,4 +285,3 @@
 
 </body>
 </html>
-
