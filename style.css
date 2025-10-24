@@ -83,22 +83,18 @@ body { font-family: sans-serif; font-family: var(--font-family); background-colo
 .footer-social a:hover { color: var(--primary-color); transform: scale(1.1); }
 .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid #2a2a2a; font-size: 0.9rem; }
 
-/* --- SCROLL ANIMATION (DEFINITIVE CLS FIX) --- */
-/* This is the general state for ALL animated elements: just be invisible */
+/* --- SCROLL ANIMATION --- */
 [data-animate] {
     opacity: 0;
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
-/* This is the STARTING STATE for elements INSIDE the article that will move */
 .article-container [data-animate] {
     transform: translateY(40px);
 }
-/* This is the ENDING STATE for ALL animated elements */
 [data-animate].is-visible {
     opacity: 1;
     transform: translateY(0);
 }
-
 
 /* --- ARTICLE IMAGE STYLES --- */
 .article-image {
@@ -120,7 +116,22 @@ figcaption {
 /* --- RESPONSIVE DESIGN (TABLETS & MOBILE) --- */
 @media screen and (max-width: 768px) {
     body { overflow-x: hidden; }
-    .nav-links { position: fixed; right: 0px; top: 0px; height: 100vh; background: var(--surface-color); display: flex; flex-direction: column; align-items: center; justify-content: space-evenly; width: 70%; transform: translateX(100%); transition: transform 0.5s ease-in; z-index: 100; visibility: hidden; }
+    .nav-links { 
+        position: fixed; 
+        right: 0px; 
+        top: 0px; 
+        height: 100vh; 
+        background: var(--surface-color); 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: space-evenly; 
+        width: 70%; 
+        transform: translateX(100%); 
+        transition: transform 0.5s ease-in, visibility 0.5s;
+        visibility: hidden; 
+        z-index: 100; 
+    }
     .nav-links li { opacity: 0; }
     .burger { display: block; z-index: 101; }
     
@@ -141,7 +152,10 @@ figcaption {
 }
 
 /* JS TOGGLE CLASSES */
-.nav-active { transform: translateX(0%); visibility: visible; }
+.nav-active { 
+    transform: translateX(0%); 
+    visibility: visible; 
+}
 .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
 .toggle .line2 { opacity: 0; }
 .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
