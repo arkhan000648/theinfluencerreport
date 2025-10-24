@@ -12,11 +12,14 @@
     <!-- PERFORMANCE: Preconnect to critical third-party origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- PERFORMANCE: Preload key font files to prevent layout shift -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1xlFd2JQEk.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- PERFORMANCE: Inlined Critical CSS for instant above-the-fold rendering -->
     <style>
-      @font-face{font-family:Poppins;font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z1xlFd2JQEk.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Poppins;font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Poppins;font-style:normal;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlFd2JQEk.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Poppins;font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1xlFd2JQEk.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}:root{--primary-color:#00aaff;--background-color:#121212;--surface-color:#1e1e1e;--text-color:#e0e0e0;--text-color-secondary:#a0a0a0;--font-family:'Poppins',sans-serif}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;overflow-x:hidden}body{font-family:var(--font-family);background-color:var(--background-color);color:var(--text-color);line-height:1.7;overflow-x:hidden}.progress-bar{position:fixed;top:0;left:0;width:0;height:4px;background:linear-gradient(90deg,var(--primary-color),#0077b6);z-index:1000;transition:width .1s linear}.site-header nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 5%;background-color:var(--background-color);border-bottom:1px solid #2a2a2a}.logo{font-weight:700;font-size:1.5rem;color:#fff}.nav-links{display:flex;justify-content:space-around;list-style:none}.nav-links li{margin:0 1rem}.nav-links a{color:var(--text-color);text-decoration:none;font-weight:600;font-size:1rem;position:relative;transition:color .3s ease}.burger,.nav-links a:hover{color:#fff}.burger{display:none;cursor:pointer}.burger div{width:25px;height:3px;background-color:var(--text-color);margin:5px;transition:all .3s ease}.hero{position:relative;height:85vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden}.hero-image-bg{position:absolute;top:50%;left:50%;width:100%;height:100%;object-fit:cover;transform:translate(-50%,-50%);z-index:-2}.hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);z-index:-1}.hero-content h1{font-size:4rem;font-weight:700;margin-bottom:1rem;text-shadow:2px 2px 10px rgba(0,0,0,.5)}.hero-content p{font-size:1.2rem;font-weight:300;max-width:800px;text-shadow:1px 1px 5px rgba(0,0,0,.5)}[data-animate]{opacity:0;transform:translateY(40px);transition:opacity .8s ease-out,transform .8s ease-out}[data-animate].is-visible{opacity:1;transform:translateY(0)}
+      @font-face{font-family:Poppins;font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z1xlFd2JQEk.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Poppins;font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Poppins;font-style:normal;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlFd2JQEk.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Poppins;font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1xlFd2JQEk.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}:root{--primary-color:#00aaff;--background-color:#121212;--surface-color:#1e1e1e;--text-color:#e0e0e0;--text-color-secondary:#a0a0a0;--font-family:'Poppins',sans-serif}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;overflow-x:hidden}body{font-family:sans-serif;font-family:var(--font-family);background-color:var(--background-color);color:var(--text-color);line-height:1.7;overflow-x:hidden}.progress-bar{position:fixed;top:0;left:0;width:0;height:4px;background:linear-gradient(90deg,var(--primary-color),#0077b6);z-index:1000;transition:width .1s linear}.site-header nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 5%;background-color:var(--background-color);border-bottom:1px solid #2a2a2a}.logo{font-weight:700;font-size:1.5rem;color:#fff}.nav-links{display:flex;justify-content:space-around;list-style:none}.nav-links li{margin:0 1rem}.nav-links a{color:var(--text-color);text-decoration:none;font-weight:600;font-size:1rem;position:relative;transition:color .3s ease}.burger,.nav-links a:hover{color:#fff}.burger{display:none;cursor:pointer}.burger div{width:25px;height:3px;background-color:var(--text-color);margin:5px;transition:all .3s ease}.hero{position:relative;height:85vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden}.hero-image-bg{position:absolute;top:50%;left:50%;width:100%;height:100%;object-fit:cover;transform:translate(-50%,-50%);z-index:-2}.hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);z-index:-1}.hero-content h1{font-size:4rem;font-weight:700;margin-bottom:1rem;text-shadow:2px 2px 10px rgba(0,0,0,.5)}.hero-content p{font-size:1.2rem;font-weight:300;max-width:800px;text-shadow:1px 1px 5px rgba(0,0,0,.5)}[data-animate]{opacity:0;transform:translateY(40px);transition:opacity .8s ease-out,transform .8s ease-out}[data-animate].is-visible{opacity:1;transform:translateY(0)}
     </style>
 
     <!-- PERFORMANCE: Asynchronously load the non-critical CSS files -->
@@ -32,13 +35,23 @@
     <!-- Your Custom Script (defer ensures it runs after HTML is loaded) -->
     <script src="script.js" defer></script>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BWMRK5BGM2"></script>
+    <!-- PERFORMANCE: Optimized Google Analytics Loading -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-BWMRK5BGM2');
+      const loadAnalytics = () => {
+        const script = document.createElement('script');
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-BWMRK5BGM2';
+        script.async = true;
+        document.head.appendChild(script);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-BWMRK5BGM2');
+      };
+      // Delay loading until the first user interaction
+      window.addEventListener('scroll', loadAnalytics, { once: true });
+      window.addEventListener('mousemove', loadAnalytics, { once: true });
+      window.addEventListener('touchstart', loadAnalytics, { once: true });
     </script>
 </head>
 <body>
@@ -100,16 +113,19 @@
                 <li><strong>Scams and Deceptive Practices:</strong> Promoting fraudulent products, running fake giveaways, or failing to disclose paid sponsorships.</li>
             </ul>
             <p data-animate>
-                It’s crucial to address the ambiguity of this search term. The phrase has been co-opted by an adult website of the same name. This article, however, is dedicated to a serious analysis of the cultural trend and is not affiliated with that platform. Our goal is to shed light on <strong>what is InfluencersGoneWild.com and the broader phenomenon</strong> of creators risking it all for digital fame.
+                It’s crucial to address the ambiguity of this search term. The phrase has been co-opted by an adult website of the same name. This article, however, is dedicated to a serious analysis of the cultural trend and is not affiliated with that platform. Our goal is to shed light on <strong><a href="what-is-influencersgonewild.html">what is InfluencersGoneWild.com and the broader phenomenon</a></strong> of creators risking it all for digital fame.
             </p>
 
             <h2 data-animate>The Psychology Behind the Phenomenon: Why It Happens</h2>
 			<figure data-animate>
-                <img src="images/psychology-of-virality.webp" 
-                     alt="A symbolic representation of an influencer absorbing social media validation." 
-                     class="article-image" 
-                     width="1000" height="563" 
-                     loading="lazy">
+                <picture>
+                    <source srcset="images/psychology-of-virality-small.webp" media="(max-width: 600px)">
+                    <img src="images/psychology-of-virality-large.webp" 
+                         alt="A symbolic representation of an influencer absorbing social media validation." 
+                         class="article-image" 
+                         width="1000" height="563" 
+                         loading="lazy">
+                </picture>
                 <figcaption>The constant chase for digital validation is a core driver of reckless behavior.</figcaption>
             </figure>
             <p data-animate>
@@ -121,7 +137,7 @@
             </p>
             <h3 data-animate>The Weight of Public Scrutiny</h3>
             <p data-animate>
-                Living life under a digital microscope takes a significant toll. Many creators face immense <strong>mental health struggles in the influencer community</strong>, including anxiety, depression, and burnout from the pressure to maintain a perfect online persona. This can lead to erratic behavior as a coping mechanism or a cry for help.
+                Living life under a digital microscope takes a significant toll. Many creators face immense <strong><a href="mental-health-crisis.html">mental health struggles in the influencer community</a></strong>, including anxiety, depression, and burnout from the pressure to maintain a perfect online persona. This can lead to erratic behavior as a coping mechanism or a cry for help.
             </p>
             <h3 data-animate>Fame Without a Roadmap</h3>
             <p data-animate>
@@ -138,20 +154,23 @@
             </p>
             <h3 data-animate>The Fyre Festival Debacle</h3>
             <p data-animate>
-                This fraudulent music festival was built entirely on the power of influencer marketing. Dozens of high-profile models and creators were paid to promote a luxurious, exclusive event that was, in reality, a chaotic and poorly organized disaster. The scandal exposed the dark side of undisclosed promotions and highlighted the potential <strong>legal consequences for reckless influencer behavior</strong>.
+                This fraudulent music festival was built entirely on the power of influencer marketing. Dozens of high-profile models and creators were paid to promote a luxurious, exclusive event that was, in reality, a chaotic and poorly organized disaster. The scandal exposed the dark side of undisclosed promotions and highlighted the potential <strong><a href="legal-consequences.html">legal consequences for reckless influencer behavior</a></strong>.
             </p>
             <h3 data-animate>The Rise of Dangerous TikTok Challenges</h3>
             <p data-animate>
-                From the "Benadryl challenge" that encouraged overdosing on allergy medication to the "blackout challenge" that led to fatalities, TikTok has been a <strong>breeding ground for life-threatening trends</strong>. These challenges underscore how the pursuit of virality can have deadly consequences, especially when an influencer's audience is young and impressionable. These are just a few examples of <strong>infamous influencer stunts that went too far</strong>.
+                From the "Benadryl challenge" that encouraged overdosing on allergy medication to the "blackout challenge" that led to fatalities, TikTok has been a <strong><a href="tiktok-challenges.html">breeding ground for life-threatening trends</a></strong>. These challenges underscore how the pursuit of virality can have deadly consequences, especially when an influencer's audience is young and impressionable. These are just a few examples of <strong><a href="infamous-stunts.html">infamous influencer stunts that went too far</a></strong>.
             </p>
 
             <h2 data-animate>The Fallout: The Real Consequences of Going Wild</h2>
             <figure data-animate>
-                <img src="images/shattered-influencer-reputation.webp" 
-                     alt="A shattered smartphone screen symbolizing the consequences of online actions." 
-                     class="article-image" 
-                     width="1000" height="563" 
-                     loading="lazy">
+                <picture>
+                    <source srcset="images/shattered-influencer-reputation-small.webp" media="(max-width: 600px)">
+                    <img src="images/shattered-influencer-reputation-large.webp" 
+                         alt="A shattered smartphone screen symbolizing the consequences of online actions." 
+                         class="article-image" 
+                         width="1000" height="563" 
+                         loading="lazy">
+                </picture>
                 <figcaption>A single controversy can lead to a shattered reputation and severe consequences.</figcaption>
             </figure>
             <p data-animate>
@@ -165,16 +184,19 @@
 
             <h2 data-animate>Ethical Lines and Social Responsibility</h2>
             <p data-animate>
-                With millions of followers, influencers hold a powerful position of social trust, particularly with younger audiences. This influence carries a significant ethical weight. Promoting harmful products, spreading misinformation, and glamorizing dangerous behavior are all breaches of this trust. As the industry matures, both consumers and brands are placing a greater emphasis on ethics. There is now a robust conversation happening around <strong>navigating influencer marketing with clear ethical guidelines for brands</strong>, demanding accountability not just from the creators but from the companies that hire them.
+                With millions of followers, influencers hold a powerful position of social trust, particularly with younger audiences. This influence carries a significant ethical weight. Promoting harmful products, spreading misinformation, and glamorizing dangerous behavior are all breaches of this trust. As the industry matures, both consumers and brands are placing a greater emphasis on ethics. There is now a robust conversation happening around <strong><a href="ethical-guidelines.html">navigating influencer marketing with clear ethical guidelines for brands</a></strong>, demanding accountability not just from the creators but from the companies that hire them.
             </p>
 
             <h2 data-animate>The Future of Influencer Culture: A Shift Towards Authenticity?</h2>
             <figure data-animate>
-                <img src="images/authenticity-and-growth.webp" 
-                     alt="A sprout growing through concrete, symbolizing a shift towards authenticity in influencer culture." 
-                     class="article-image" 
-                     width="1000" height="563" 
-                     loading="lazy">
+                <picture>
+                    <source srcset="images/authenticity-and-growth-small.webp" media="(max-width: 600px)">
+                    <img src="images/authenticity-and-growth-large.webp" 
+                         alt="A sprout growing through concrete, symbolizing a shift towards authenticity in influencer culture." 
+                         class="article-image" 
+                         width="1000" height="563" 
+                         loading="lazy">
+                </picture>
                 <figcaption>Audiences are increasingly demanding a shift towards greater authenticity and responsibility.</figcaption>
             </figure>
 			<p data-animate>
@@ -256,7 +278,3 @@
 
 </body>
 </html>
-
-
-
-
