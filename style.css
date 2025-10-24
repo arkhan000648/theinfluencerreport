@@ -1,16 +1,12 @@
 /* --- CSS VARIABLES & GLOBAL STYLES --- */
 :root {
-    --primary-color: #00aaff; /* A vibrant, modern blue */
-    --background-color: #121212; /* A deep, rich dark background */
-    --surface-color: #1e1e1e; /* Slightly lighter for containers */
-    --text-color: #e0e0e0; /* Off-white for better readability */
-    --text-color-secondary: #a0a0a0; /* Gray for subtle text */
-
-    /* --- FONT DEFINITIONS WITH CLS FIX --- */
-    /* Define the webfont */
+    --primary-color: #00aaff;
+    --background-color: #121212;
+    --surface-color: #1e1e1e;
+    --text-color: #e0e0e0;
+    --text-color-secondary: #a0a0a0;
     --font-family-main: 'Poppins', 'Poppins Fallback', sans-serif;
     
-    /* Define the fallback with size-adjust to match Poppins */
     @font-face {
       font-family: 'Poppins Fallback';
       size-adjust: 103%;
@@ -29,7 +25,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; overflow-x: hidden; }
 body { 
-    font-family: var(--font-family-main); /* Apply the font stack here */
+    font-family: var(--font-family-main);
     background-color: var(--background-color); 
     color: var(--text-color); 
     line-height: 1.7; 
@@ -51,7 +47,7 @@ body {
 .burger { display: none; cursor: pointer; }
 .burger div { width: 25px; height: 3px; background-color: var(--text-color); margin: 5px; transition: all 0.3s ease; }
 
-/* --- HERO SECTION (CLS OPTIMIZED) --- */
+/* --- HERO SECTION --- */
 .hero { 
     position: relative; 
     display: flex; 
@@ -61,7 +57,7 @@ body {
     color: #fff; 
     overflow: hidden;
     width: 100%;
-    aspect-ratio: 1000 / 563; /* Stable aspect ratio */
+    aspect-ratio: 1000 / 563;
     max-height: 85vh;
 }
 .hero-image-bg { 
@@ -89,7 +85,6 @@ body {
 .faq-container { margin-top: 2rem; }
 .faq-item { background-color: var(--surface-color); border-radius: 10px; padding: 1.5rem; margin-bottom: 1rem; border-left: 3px solid var(--primary-color); }
 .faq-item .faq-question { font-weight: 600; font-size: 1.3rem; margin: 0 0 0.5rem 0; color: #fff; }
-.faq-item .faq-answer { font-size: 1rem; margin-bottom: 0; color: var(--text-color-secondary); }
 
 /* --- AUTHOR BIO SECTION --- */
 .author-bio { margin-top: 5rem; padding: 2.5rem; background-color: var(--surface-color); border-radius: 15px; display: flex; align-items: center; gap: 2rem; border: 1px solid #2a2a2a; }
@@ -133,7 +128,23 @@ figcaption {
 /* --- RESPONSIVE DESIGN (TABLETS & MOBILE) --- */
 @media screen and (max-width: 768px) {
     body { overflow-x: hidden; }
-    .nav-links { position: fixed; right: 0px; top: 0px; height: 100vh; background: var(--surface-color); display: flex; flex-direction: column; align-items: center; justify-content: space-evenly; width: 70%; transform: translateX(100%); transition: transform 0.5s ease-in; z-index: 100; }
+    .nav-links { 
+        position: fixed; 
+        right: 0px; 
+        top: 0px; 
+        height: 100vh; 
+        background: var(--surface-color); 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: space-evenly; 
+        width: 70%; 
+        transform: translateX(100%); 
+        transition: transform 0.5s ease-in; 
+        z-index: 100; 
+        /* THIS IS THE CRITICAL FIX FOR CLS */
+        visibility: hidden; 
+    }
     .nav-links li { opacity: 0; }
     .burger { display: block; z-index: 101; }
     
@@ -154,7 +165,11 @@ figcaption {
 }
 
 /* JS TOGGLE CLASSES */
-.nav-active { transform: translateX(0%); }
+.nav-active { 
+    transform: translateX(0%); 
+    /* THIS COMPLETES THE FIX */
+    visibility: visible; 
+}
 .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
 .toggle .line2 { opacity: 0; }
 .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
