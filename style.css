@@ -153,94 +153,117 @@ figcaption {
 }
 
 
-/* --- INTEGRATED ARTICLE NAVIGATION SECTION --- */
-.article-navigation {
+/* --- ULTRA-MODERN NEXT STEP SECTION --- */
+.next-step-section {
     max-width: 800px;
-    margin: 4rem auto;
+    margin: 6rem auto 4rem auto; /* More space to let it breathe */
     padding: 0 2rem;
+}
+
+.next-step-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+    color: var(--text-color);
+}
+
+.next-step-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
 }
 
-.nav-card {
+.next-step-card {
     background-color: var(--surface-color);
     border: 1px solid #2a2a2a;
     border-radius: 15px;
     padding: 2rem;
     text-decoration: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.nav-card:hover {
-    transform: translateY(-5px);
+.next-step-card:hover {
+    transform: translateY(-8px);
     border-color: var(--primary-color);
-    background-color: #242424; /* Slightly lighter on hover */
 }
 
-.nav-card.prev-card {
-    text-align: left;
+/* --- The Magnetic Glow Effect --- */
+.next-step-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at var(--x) var(--y),
+        rgba(0, 170, 255, 0.15) 0%, /* Your --primary-color in rgba */
+        transparent 25%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
-.nav-card.next-card {
-    text-align: right;
+.next-step-card:hover::before {
+    opacity: 1;
+}
+/* --- End Glow Effect --- */
+
+.next-step-card .card-content {
+    position: relative; /* Ensure content is above the glow */
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.nav-card.next-card .nav-card-content {
-    text-align: right;
-}
-
-.nav-card span {
+.next-step-card span {
     color: var(--primary-color);
     font-size: 0.9rem;
     font-weight: 600;
-    display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
 }
 
-.nav-card h3 {
+.next-step-card h3 {
     color: var(--text-color);
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-weight: 600;
-    margin: 0;
     line-height: 1.4;
+    margin: 0;
+    flex-grow: 1; /* Pushes the arrow to the bottom */
 }
 
-.nav-arrow {
-    font-size: 2.5rem;
+.next-step-card .card-arrow {
+    font-size: 2rem;
     color: var(--text-color-secondary);
-    transition: color 0.3s ease, transform 0.3s ease;
+    align-self: flex-end; /* Pushes arrow to the right */
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.nav-card:hover .nav-arrow {
+.next-step-card:hover .card-arrow {
     color: var(--primary-color);
-    transform: scale(1.1);
+    transform: translateX(5px);
 }
 
-.nav-card.prev-card .nav-arrow {
-    margin-right: 1.5rem; /* Space between arrow and text */
-}
-
-.nav-card.next-card .nav-arrow {
-    margin-left: 1.5rem; /* Space between arrow and text */
+/* Specific styling for the back arrow */
+.next-step-card:hover .card-arrow:first-child {
+    transform: translateX(-5px);
 }
 
 
-/* --- RESPONSIVE ARTICLE NAVIGATION --- */
+/* --- RESPONSIVE NEXT STEP SECTION --- */
 @media screen and (max-width: 768px) {
-    .article-navigation {
-        grid-template-columns: 1fr;
+    .next-step-section {
         padding: 0 1rem;
     }
-    
-    .nav-card {
-        padding: 1.5rem;
+    .next-step-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
-
-    .nav-card h3 {
-        font-size: 1.1rem;
+    .next-step-card h3 {
+        font-size: 1.2rem;
     }
 }
