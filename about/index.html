@@ -5,33 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | The Influencer Report</title>
     
-    <!-- Google Fonts: Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- SEO and Browser Tags -->
     
-    <!-- Font Awesome for Social Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="canonical" href="https://theinfluencerreport.org/about/">
     <link rel="icon" href="/theinfluencerreporticon.png" type="image/x-icon">
 
-    <!-- Your EXISTING Custom Stylesheet -->
-    <link rel="stylesheet" href="../style.css">
+	 <!-- PERFORMANCE: Preload the LCP Image with high priority -->
+    <link rel="preload" as="image" href="your-about-hero-image.jpg" fetchpriority="high">
     
-    <!-- Your EXISTING Custom Script -->
+    <!-- PERFORMANCE: Preload Critical Fonts -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1xlFd2JQEk.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- PERFORMANCE: Preconnect to third-party origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- PERFORMANCE: Inlined Critical CSS with Font Metric Overrides to prevent CLS -->
+    <style>
+      /* --- FONT-FACE RULES TO PREVENT LAYOUT SHIFT --- */
+      @font-face{font-family:'Poppins Fallback';src:local('Arial');ascent-override:90%;descent-override:22%;line-gap-override:0%;size-adjust:104%}
+      @font-face{font-family:Poppins;font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z1xlFd2JQEk.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+      @font-face{font-family:Poppins;font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+      @font-face{font-family:Poppins;font-style:normal;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlFd2JQEk.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+      @font-face{font-family:Poppins;font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1xlFd2JQEk.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+      
+      /* --- CRITICAL CSS --- */
+      :root{--primary-color:#00aaff;--background-color:#121212;--surface-color:#1e1e1e;--text-color:#e0e0e0;--text-color-secondary:#a0a0a0;--font-family:'Poppins','Poppins Fallback',sans-serif}
+      *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;overflow-x:hidden}body{font-family:var(--font-family);background-color:var(--background-color);color:var(--text-color);line-height:1.7;overflow-x:hidden}.progress-bar{position:fixed;top:0;left:0;width:0;height:4px;background:linear-gradient(90deg,var(--primary-color),#0077b6);z-index:1000;transition:width .1s linear}.site-header nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 5%;background-color:var(--background-color);border-bottom:1px solid #2a2a2a}.logo{font-weight:700;font-size:1.5rem;color:#fff}.nav-links{display:flex;justify-content:space-around;list-style:none}.nav-links li{margin:0 1rem}.nav-links a{color:var(--text-color);text-decoration:none;font-weight:600;font-size:1rem;position:relative;transition:color .3s ease}.burger,.nav-links a:hover{color:#fff}.burger{display:none;cursor:pointer}.burger div{width:25px;height:3px;background-color:var(--text-color);margin:5px;transition:all .3s ease}.hero-content h1{font-size:4rem;font-weight:700;margin-bottom:1rem;text-shadow:2px 2px 10px rgba(0,0,0,.5)}.hero-content p{font-size:1.2rem;font-weight:300;max-width:800px;text-shadow:1px 1px 5px rgba(0,0,0,.5)}[data-animate]{opacity:0;transition:opacity .8s ease-out}[data-animate].is-visible{opacity:1}
+    </style>
+
+    <!-- PERFORMANCE: Asynchronously load the non-critical CSS files -->
+    <link rel="stylesheet" href="../style.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../fontello.css" media="print" onload="this.media='all'">
+    
+    <!-- Fallback for browsers that don't support async CSS loading -->
+    <noscript>
+      <link rel="stylesheet" href="../style.css">
+      <link rel="stylesheet" href="../fontello.css">
+    </noscript>
+    
+    <!-- Your Custom Script (defer ensures it runs after HTML is loaded) -->
     <script src="../script.js" defer></script>
 
-    <!-- Internal CSS for this page's unique hero style -->
-    <style>
-        .hero.static-hero {
-            height: 60vh;
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
-        }
-        .hero.static-hero .hero-video-bg {
-            display: none;
-        }
-    </style>
+    <!-- PERFORMANCE: Optimized Google Analytics Loading -->
+    <script>
+      const loadAnalytics = () => {
+        const script = document.createElement('script');
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-BWMRK5BGM2';
+        script.async = true;
+        document.head.appendChild(script);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-BWMRK5BGM2');
+      };
+      // Delay loading until the first user interaction
+      window.addEventListener('scroll', loadAnalytics, { once: true });
+      window.addEventListener('mousemove', loadAnalytics, { once: true });
+      window.addEventListener('touchstart', loadAnalytics, { once: true });
+    </script>
 </head>
 <body>
 
@@ -42,9 +76,9 @@
         <nav>
             <div class="logo">The Influencer Report</div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
             <div class="burger">
                 <div class="line1"></div>
@@ -72,7 +106,7 @@
             
             <h2 data-animate>Our Mission</h2>
             <p data-animate>
-                Our mission is to cut through the noise. The term <strong><a href="index.html">"influencers gone wild"</a></strong> is more than just a keyword; it represents a significant cultural shift where the lines between fame, responsibility, and recklessness have blurred. We created this platform to explore this phenomenon with the depth and seriousness it deserves.
+                Our mission is to cut through the noise. The term <strong><a href="https://theinfluencerreport.org/">"influencers gone wild"</a></strong> is more than just a keyword; it represents a significant cultural shift where the lines between fame, responsibility, and recklessness have blurred. We created this platform to explore this phenomenon with the depth and seriousness it deserves.
             </p>
             <p data-animate>We are committed to:</p>
             <ul data-animate>
@@ -86,20 +120,20 @@
                 Our content is built around a core "Pillar-Cluster" strategy to provide comprehensive coverage of the most critical topics in influencer culture. Our key areas of focus include:
             </p>
             <ul data-animate>
-                <li><strong>Case Studies in Creator Behavior:</strong> Analyzing the most significant <strong><a href="infamous-stunts.html">infamous influencer stunts</a></strong> and what we can learn from them.</li>
-                <li><strong>Creator Well-Being:</strong> A compassionate look at the growing <strong><a href="mental-health-crisis.html">mental health crisis</a></strong> affecting the community.</li>
-                <li><strong>Industry Ethics and Marketing:</strong> Providing clear <strong><a href="ethical-guidelines.html">guidelines for brands</a></strong> to navigate partnerships responsibly.</li>
-                <li><strong>Youth Culture and Viral Trends:</strong> Investigating the real-world impact of phenomena like <strong><a href="tiktok-challenges.html">dangerous TikTok challenges</a></strong>.</li>
-                <li><strong>Legal and Digital Privacy:</strong> Exploring the serious <strong><a href="legal-consequences.html">legal consequences</a></strong> and the controversies surrounding sites like <strong><a href="what-is-influencersgonewild.html">InfluencersGoneWild.com</a></strong>.</li>
+                <li><strong>Case Studies in Creator Behavior:</strong> Analyzing the most significant <strong><a href="https://theinfluencerreport.org/infamous-stunts/">infamous influencer stunts</a></strong> and what we can learn from them.</li>
+                <li><strong>Creator Well-Being:</strong> A compassionate look at the growing <strong><a href="https://theinfluencerreport.org/mental-health-crisis/">mental health crisis</a></strong> affecting the community.</li>
+                <li><strong>Industry Ethics and Marketing:</strong> Providing clear <strong><a href="https://theinfluencerreport.org/ethical-guidelines/">guidelines for brands</a></strong> to navigate partnerships responsibly.</li>
+                <li><strong>Youth Culture and Viral Trends:</strong> Investigating the real-world impact of phenomena like <strong><a href="https://theinfluencerreport.org/tiktok-challenges/">dangerous TikTok challenges</a></strong>.</li>
+                <li><strong>Legal and Digital Privacy:</strong> Exploring the serious <strong><a href="https://theinfluencerreport.org/legal-consequences/">legal consequences</a></strong> and the controversies surrounding sites like <strong><a href="https://theinfluencerreport.org/what-is-influencersgonewild/">InfluencersGoneWild.com</a></strong>.</li>
             </ul>
 
             <!-- You can reuse the author bio section here, but framed as the founder -->
             <h2 data-animate>Meet Our Founder</h2>
             <section class="author-bio standalone" data-animate>
-                <img src="author-image.jpg" alt="Photo of the founder, [Your Name]">
+                <img src="../images/Md-Ashikuzzaman.webp" alt="Photo of the founder, Md Ashikuzzaman">
                 <div class="author-details">
-                    <h3>[Your Name]</h3>
-                    <p><strong>[Your Name]</strong> is a digital culture analyst and writer specializing in the creator economy and social media trends. With over a decade of experience observing the rise of online influence, they founded The Influencer Report to create a space for thoughtful, critical analysis in an often-overheated industry. Their work is dedicated to understanding the human side of digital fame.</p>
+                    <h3>Md Ashikuzzaman</h3>
+                    <p><strong>Md Ashikuzzaman</strong> is a digital culture analyst and writer specializing in the creator economy and social media trends. With over a decade of experience observing the rise of online influence, they founded The Influencer Report to create a space for thoughtful, critical analysis in an often-overheated industry. Their work is dedicated to understanding the human side of digital fame.</p>
                     <div class="social-links">
                         <a href="#" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
                         <a href="#" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
@@ -119,9 +153,9 @@
     <footer class="site-footer">
         <div class="footer-container">
             <nav class="footer-nav">
-                <a href="#">Disclaimer</a>
-                <a href="#">Terms & Conditions</a>
-                <a href="#">Privacy Policy</a>
+                <a href="/disclaimer">Disclaimer</a>
+                <a href="/terms-and-conditions">Terms & Conditions</a>
+                <a href="/privacy-policy">Privacy Policy</a>
             </nav>
             <div class="footer-social">
                 <a href="#" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
@@ -136,3 +170,4 @@
 </body>
 
 </html>
+
