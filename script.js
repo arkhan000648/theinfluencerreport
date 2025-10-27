@@ -70,5 +70,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     }); // The .then() block for fonts.ready ends here.
+
+    // --- Ultra-Modern Card Glow Effect ---
+    const cards = document.querySelectorAll('.next-step-card');
+
+    cards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left; // x position within the element.
+            const y = e.clientY - rect.top;  // y position within the element.
+
+            card.style.setProperty('--x', `${x}px`);
+            card.style.setProperty('--y', `${y}px`);
+        });
+    });
     
 });
+
