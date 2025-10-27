@@ -1,0 +1,8 @@
+# The Influencer Report - Robots.txt
+# All well-behaved crawlers are welcome to access all content.
+
+User-agent: *
+Allow: /
+
+# Location of the XML Sitemap
+Sitemap: https://theinfluencerreport.org/sitemap.xml

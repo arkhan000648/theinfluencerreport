@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Main Pillar Page -->
+    <url>
+        <loc>https://theinfluencerreport.org/</loc>
+        <lastmod>2025-11-03</lastmod>
+    </url>
+    <!-- Core Site Pages -->
+    <url>
+        <loc>https://theinfluencerreport.org/about/</loc>
+        <lastmod>2025-11-03</lastmod>
+    </url>
+    <url>
+        <loc>https://theinfluencerreport.org/contact/</loc>
+        <lastmod>2025-11-03</lastmod>
+    </url>
+    <!-- Supporting Article Cluster -->
+    <url>
+        <loc>https://theinfluencerreport.org/what-is-influencersgonewild/</loc>
+        <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+        <loc>https://theinfluencerreport.org/tiktok-challenges/</loc>
+        <lastmod>2025-11-01</lastmod>
+    </url>
+    <url>
+        <loc>https://theinfluencerreport.org/mental-health-crisis/</loc>
+        <lastmod>2025-10-31</lastmod>
+    </url>
+    <url>
+        <loc>https://theinfluencerreport.org/legal-consequences/</loc>
+        <lastmod>2025-10-30</lastmod>
+    </url>
+    <url>
+        <loc>https://theinfluencerreport.org/infamous-stunts/</loc>
+        <lastmod>2025-10-29</lastmod>
+    </url>
+    <url>
+        <loc>https://theinfluencerreport.org/ethical-guidelines/</loc>
+        <lastmod>2025-10-28</lastmod>
+    </url>
+    <!-- Legal Pages -->
+    <url>
+        <loc>https://theinfluencerreport.org/disclaimer/</loc>
+        <lastmod>2025-10-27</lastmod>
+    </url>
+    <url>
+        <loc>https://theinfluencerreport.org/terms-and-conditions/</loc>
+        <lastmod>2025-10-27</lastmod>
+    </url>
+    <url>
+        <loc>https://theinfluencerreport.org/privacy-policy/</loc>
+        <lastmod>2025-10-27</lastmod>
+    </url>
+</urlset>
