@@ -36,7 +36,7 @@ body { font-family: sans-serif; font-family: var(--font-family); background-colo
     text-align: center; 
     color: #fff; 
     overflow: hidden;
-    background-image: url('images/hero-fallback-mobile-large.webp');
+    background-image: url('images/influencers-gone-wild.webp');
     background-position: center center;
     background-size: cover;
     
@@ -267,3 +267,4 @@ figcaption {
         font-size: 1.2rem;
     }
 }
+
