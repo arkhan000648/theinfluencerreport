@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Optimized Reading Progress Bar Logic ---
+    // This can run immediately, no changes needed here.
     const progressBar = document.getElementById('progressBar');
     let ticking = false;
     
@@ -21,16 +22,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Mobile Navigation Logic ---
+    // This can also run immediately, no changes needed here.
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
     const navLinks = document.querySelectorAll('.nav-links li');
 
     burger.addEventListener('click', () => {
-        // Toggle Nav
         nav.classList.toggle('nav-active');
         const isActive = nav.classList.contains('nav-active');
 
-        // Animate Links
         navLinks.forEach((link, index) => {
             if (link.style.animation) {
                 link.style.animation = '';
@@ -39,32 +39,36 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Burger Animation
         burger.classList.toggle('toggle');
-        
-        // --- ACCESSIBILITY IMPROVEMENT ---
         burger.setAttribute('aria-expanded', isActive);
         burger.setAttribute('aria-label', isActive ? 'Close navigation menu' : 'Open navigation menu');
     });
 
 
-    // --- Scroll Animation Logic using Intersection Observer ---
-    const animatedElements = document.querySelectorAll('[data-animate]');
+    // --- THIS IS THE CRITICAL CHANGE ---
+    // We now wait for all fonts to be ready before setting up the scroll animation.
+    document.fonts.ready.then(() => {
+    
+        // --- Scroll Animation Logic using Intersection Observer ---
+        // This code now runs ONLY AFTER the fonts are loaded.
+        const animatedElements = document.querySelectorAll('[data-animate]');
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.1 
         });
-    }, {
-        root: null,
-        threshold: 0.1 
-    });
 
-    animatedElements.forEach(element => {
-        observer.observe(element);
-    });
+        animatedElements.forEach(element => {
+            observer.observe(element);
+        });
+
+    }); // The .then() block for fonts.ready ends here.
     
 });
