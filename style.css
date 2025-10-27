@@ -153,3 +153,96 @@ figcaption {
 }
 
 
+/* --- ARTICLE NAVIGATION SECTION --- */
+.article-navigation {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.nav-card {
+    background-color: var(--surface-color);
+    border: 1px solid #2a2a2a;
+    border-radius: 15px;
+    padding: 2rem;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.nav-card.prev-card {
+    /* For pages with a previous link */
+    text-align: left;
+}
+
+.nav-card.next-card {
+    /* For pages with a next link */
+    text-align: right;
+}
+
+.nav-card.next-card .nav-card-content {
+    /* Aligns text to the right for "next" cards */
+    text-align: right;
+}
+
+.nav-card span {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.nav-card h3 {
+    color: var(--text-color);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.nav-arrow {
+    font-size: 2.5rem;
+    color: var(--text-color-secondary);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-card:hover .nav-arrow {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.nav-card.prev-card .nav-arrow {
+    margin-right: 1.5rem; /* Space between arrow and text */
+}
+
+.nav-card.next-card .nav-arrow {
+    margin-left: 1.5rem; /* Space between arrow and text */
+}
+
+
+/* --- RESPONSIVE ARTICLE NAVIGATION --- */
+@media screen and (max-width: 768px) {
+    .article-navigation {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+    
+    .nav-card {
+        padding: 1.5rem;
+    }
+
+    .nav-card h3 {
+        font-size: 1.1rem;
+    }
+}
