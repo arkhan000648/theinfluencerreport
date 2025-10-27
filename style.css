@@ -7,7 +7,7 @@
     --text-color-secondary: #a0a0a0;
     --font-family: 'Poppins', 'Poppins Fallback', sans-serif;
 }
-
+a {color: #ff3e00;}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; overflow-x: hidden; }
 body { font-family: sans-serif; font-family: var(--font-family); background-color: var(--background-color); color: var(--text-color); line-height: 1.7; overflow-x: hidden; }
@@ -151,4 +151,5 @@ figcaption {
     from { opacity: 0; transform: translateX(50px); }
     to { opacity: 1; transform: translateX(0px); }
 }
+
 
