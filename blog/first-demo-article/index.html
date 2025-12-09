@@ -3,18 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- =========================================================================
+         [CONTROL CENTER] - EDIT YOUR ARTICLE DETAILS HERE
+         Everything else (Banner, Schema, Breadcrumbs) will update automatically.
+    ========================================================================== -->
+    
+    <!-- 1. TITLE (Appears on Browser Tab & H1 on page) -->
     <title>What is InfluencersGoneWild.com? Controversies and Privacy Explained</title>
     
-    <!-- SEO and Meta Tags -->
+    <!-- 2. DESCRIPTION (Appears in Google Search Results) -->
     <meta name="description" content="An in-depth look at InfluencersGoneWild.com, the ethical controversies surrounding content aggregation, consent, and digital privacy issues for creators.">
-    <!-- Canonical and Icon -->
-    <link rel="canonical" href="https://theinfluencerreport.org/blog/first-demo-article/">
-    <link rel="icon" href="/theinfluencerreporticon.png" type="image/x-icon">
     
-    <!-- AUTHOR -->
+    <!-- 3. MAIN IMAGE (Paste the link once here, it will auto-fill the banner) -->
+    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/HelloWorld.svg/2560px-HelloWorld.svg.png">
+
+    <!-- 4. CANONICAL URL (Update the slug part) -->
+    <link rel="canonical" href="https://theinfluencerreport.org/blog/first-demo-article/">
+
+    <!-- =========================================================================
+         END CONTROL CENTER - DO NOT EDIT BELOW UNTIL 'ARTICLE-CONTENT'
+    ========================================================================== -->
+
+    <link rel="icon" href="/theinfluencerreporticon.png" type="image/x-icon">
     <meta name="author" content="Md Ashikuzzaman">
 
+    <!-- Social Media Tags (Auto-uses data from Control Center) -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://theinfluencerreport.org/blog/first-demo-article/"> <!-- Update slug here if sharing fails -->
+    <!-- Note: We use JS to mirror title/desc, but for static scrapers, the <title> and meta desc above work fine. -->
+
     <!-- PERFORMANCE: Preload Critical Assets -->
+    <!-- We preload the image defined in Control Center (Manual update needed only here for Perfect LCP, or leave generic) -->
     <link rel="preload" as="image" href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/HelloWorld.svg/2560px-HelloWorld.svg.png" fetchpriority="high">
     <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
 
@@ -28,16 +48,7 @@
 
     <!-- LINK TO SHARED CSS -->
     <link rel="stylesheet" href="../article.css">
-    
-    <!-- LINK TO ICONS -->
     <link rel="stylesheet" href="../../fontello.css">
-
-    <!-- Open Graph Tags -->
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="What is InfluencersGoneWild.com? The Core Controversies">
-    <meta property="og:description" content="An in-depth look at InfluencersGoneWild.com, the ethical controversies surrounding content aggregation, consent, and digital privacy issues.">
-    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/HelloWorld.svg/2560px-HelloWorld.svg.png">
-    <meta property="og:url" content="https://theinfluencerreport.org/blog/first-demo-article/">
 </head>
 <body>
 
@@ -70,30 +81,38 @@
                 <span id="dynamicBreadcrumbSlug" style="color: var(--primary-color);"></span>
             </div>
             
-            <h1 class="blog-title">What is InfluencersGoneWild.com?</h1>
+            <!-- H1 will be STATIC for SEO but user can edit title in CONTROL CENTER -->
+            <!-- We will duplicate the title here manually for best SEO, or use JS to fill it if you prefer purely DRY code. 
+                 Since you asked for copy-paste simplicity, update the text below manually or leave it matching Control Center. -->
+            <h1 class="blog-title">What is InfluencersGoneWild.com? Controversies and Privacy Explained</h1>
             
             <div class="blog-meta">
                 <span>By <span class="author-name">Md Ashikuzzaman</span></span>
                 <span class="meta-separator">•</span>
                 
-                <!-- Date fills automatically -->
-                <span id="dynamicDate">Loading Date...</span>
+                <!-- Date fills automatically from GitHub Last-Modified -->
+                <span id="dynamicDate">Loading...</span>
                 
                 <span class="meta-separator">•</span>
-                <span>4 Min Read</span>
+                
+                <!-- Reading Time fills automatically based on word count -->
+                <span id="dynamicReadingTime">Calculating...</span>
             </div>
         </section>
 
-        <!-- Professional Banner Image -->
+        <!-- Professional Banner Image (Source is AUTO-FILLED from Control Center) -->
         <div class="banner-container">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/HelloWorld.svg/2560px-HelloWorld.svg.png" 
-                 alt="Digital illustration representing the aggregation of online content" 
+            <img id="dynamicBannerImage" 
+                 src="" 
+                 alt="Article Banner Image" 
                  class="banner-image" 
                  width="1280" height="720"
                  fetchpriority="high">
         </div>
 
-        <!-- Main Article Body -->
+        <!-- =========================================================================
+             START WRITING YOUR ARTICLE HERE
+        ========================================================================== -->
         <article class="article-content">
             <p class="intro-paragraph">
                 InfluencersGoneWild.com is an online platform that aggregates and shares explicit or NSFW (Not Safe For Work) content, allegedly featuring social media influencers and content creators. Unlike subscription platforms like OnlyFans, where creators control their own accounts and earnings, this site primarily functions as a third-party aggregator.
