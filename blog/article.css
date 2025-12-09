@@ -36,10 +36,10 @@ a:hover { text-decoration: underline; }
 .burger { display: none; cursor: pointer; }
 .burger div { width: 25px; height: 3px; background-color: var(--text-color); margin: 5px; transition: all 0.3s ease; }
 
-/* --- BLOG HEADER SECTION (Mobile Optimized) --- */
+/* --- BLOG HEADER SECTION --- */
 .blog-header {
     max-width: 800px;
-    margin: 6rem auto 2rem auto; /* Added top margin to clear fixed headers if needed */
+    margin: 6rem auto 2rem auto;
     padding: 0 1.5rem;
     text-align: left;
 }
@@ -48,16 +48,15 @@ a:hover { text-decoration: underline; }
     font-size: 0.85rem;
     color: var(--text-color-secondary);
     margin-bottom: 1rem;
-    text-transform: capitalize; /* Makes slug look nice */
+    text-transform: capitalize;
     letter-spacing: 0.5px;
     display: flex;
-    flex-wrap: wrap; /* Wraps on very small screens */
+    flex-wrap: wrap;
     gap: 0.5rem;
 }
 .breadcrumbs a { color: var(--text-color-secondary); }
 .breadcrumbs a:hover { color: var(--primary-color); }
 
-/* Clamp font size for mobile responsiveness */
 .blog-title {
     font-size: clamp(2rem, 5vw, 3rem); 
     font-weight: 700;
@@ -68,7 +67,7 @@ a:hover { text-decoration: underline; }
 
 .blog-meta {
     display: flex;
-    flex-wrap: wrap; /* CRITICAL: Allows items to stack on mobile */
+    flex-wrap: wrap;
     align-items: center;
     gap: 1rem;
     font-size: 0.9rem;
@@ -107,7 +106,7 @@ a:hover { text-decoration: underline; }
 .article-content p { margin-bottom: 1.8rem; font-size: 1.1rem; color: #dcdcdc; }
 
 .article-content h2 { 
-    font-size: clamp(1.5rem, 4vw, 2rem); /* Responsive Font */
+    font-size: clamp(1.5rem, 4vw, 2rem);
     font-weight: 600; 
     margin-top: 3.5rem; 
     margin-bottom: 1.5rem; 
@@ -158,10 +157,6 @@ figcaption { text-align: center; font-size: 0.85rem; color: var(--text-color-sec
 .footer-social a:hover { color: var(--primary-color); }
 .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid #2a2a2a; margin-top: 2rem; font-size: 0.9rem; }
 
-/* --- ANIMATIONS --- */
-[data-animate] { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-[data-animate].is-visible { opacity: 1; transform: translateY(0); }
-
 /* --- RESPONSIVE MOBILE --- */
 @media screen and (max-width: 768px) {
     .nav-links { position: fixed; right: 0; top: 0; height: 100vh; background: var(--surface-color); display: flex; flex-direction: column; align-items: center; justify-content: space-evenly; width: 75%; transform: translateX(100%); transition: transform 0.5s ease-in; z-index: 100; visibility: hidden; border-left: 1px solid #333; }
@@ -172,7 +167,6 @@ figcaption { text-align: center; font-size: 0.85rem; color: var(--text-color-sec
     
     .blog-meta { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
     .blog-meta span { display: inline-block; }
-    /* Hide the bullet separators on mobile for cleaner look */
     .meta-separator { display: none; } 
 
     .banner-container { padding: 0; }
