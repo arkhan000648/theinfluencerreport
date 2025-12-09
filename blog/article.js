@@ -4,12 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const initDynamicData = () => {
         // A. GET SLUG FROM URL
         const path = window.location.pathname;
-        // Removes empty strings, gets the last part (folder name)
         const pathParts = path.split('/').filter(Boolean);
         let slug = pathParts[pathParts.length - 1]; 
         
-        // Convert "first-demo-article" to "First Demo Article" for display
-        const readableSlug = slug.replace(/-/g, ' ');
+        // Convert "first-demo-article" to "First Demo Article"
+        const readableSlug = slug ? slug.replace(/-/g, ' ') : "Article";
 
         // B. INSERT SLUG INTO BREADCRUMBS
         const breadcrumbSpan = document.getElementById('dynamicBreadcrumbSlug');
@@ -18,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // C. GET AUTOMATIC DATE (Last Modified)
-        // On GitHub Pages, lastModified is the deploy time.
         const lastMod = new Date(document.lastModified);
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         const formattedDate = lastMod.toLocaleDateString('en-US', options);
@@ -30,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // D. GENERATE & INJECT SCHEMA (JSON-LD) AUTOMATICALLY
-        // We construct the schema object based on page data
         const schemaData = {
             "@context": "https://schema.org",
             "@graph": [
@@ -53,8 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         "name": "The Influencer Report", 
                         "logo": { "@type": "ImageObject", "url": "https://theinfluencerreport.org/theinfluencerreporticon.png" } 
                     },
-                    // ISO 8601 Format for Schema
-                    "datePublished": "2025-10-27T08:00:00+00:00", // Fallback or keep static if needed, but modified is dynamic
+                    "datePublished": "2025-10-27T08:00:00+00:00", 
                     "dateModified": lastMod.toISOString() 
                 }
             ]
@@ -69,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initDynamicData();
 
 
-    // --- 2. Standard UI Logic (Progress Bar, Menu, Animation) ---
+    // --- 2. Standard UI Logic (Progress Bar & Menu) ---
     
     // Progress Bar
     const progressBar = document.getElementById('progressBar');
@@ -100,23 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             burger.classList.toggle('toggle');
             burger.setAttribute('aria-expanded', isActive);
-        });
-    }
-
-    // Scroll Animations
-    if (document.fonts) {
-        document.fonts.ready.then(() => {
-            const animatedElements = document.querySelectorAll('[data-animate]');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { root: null, threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-            
-            animatedElements.forEach(el => observer.observe(el));
         });
     }
 });
