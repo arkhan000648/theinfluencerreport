@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Loading...</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Admin Icons (Fontello) -->
+    <link rel="stylesheet" href="../admin/fontello.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Dynamic Header (Populated by JS from settings.json) -->
+    <header class="site-header" id="dynamic-header"></header>
+    
+    <!-- Ad Unit: Header Bottom -->
+    <div id="ad-header-bottom"></div>
+
+    <main class="blog-wrapper">
+        <div class="blog-heading">
+            <h1>Latest Updates</h1>
+            <p>Read our latest articles, news, and guides.</p>
+        </div>
+
+        <div id="blog-list" class="blog-list">
+            <!-- Skeletons appear while JS loads -->
+            <div class="skeleton-card">
+                <div class="sk-img"></div>
+                <div class="sk-body"><div class="sk-line w-75"></div><div class="sk-line w-50"></div><div class="sk-line w-100"></div></div>
+            </div>
+            <div class="skeleton-card">
+                <div class="sk-img"></div>
+                <div class="sk-body"><div class="sk-line w-75"></div><div class="sk-line w-50"></div><div class="sk-line w-100"></div></div>
+            </div>
+        </div>
+
+        <!-- Infinite Scroll Trigger -->
+        <div id="sentinel" class="loading-sentinel">
+            <div class="spinner hidden"></div>
+            <span class="end-msg hidden">No more posts.</span>
+        </div>
+    </main>
+
+    <!-- Dynamic Footer (Populated by JS) -->
+    <footer class="site-footer" id="dynamic-footer"></footer>
+
+    <!-- Ad Units: Sticky -->
+    <div id="ad-sticky-left"></div>
+    <div id="ad-sticky-right"></div>
+    <div id="ad-sticky-footer"></div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
