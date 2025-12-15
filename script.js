@@ -7,11 +7,14 @@
 // [CONFIGURATION]
 // ==========================================
 const FEATURED_SLUGS = [
-    "influencers-gone-wild",
-    "ethical-guidelines",
-    "infamous-stunts",
-    "legal-consequences", 
-    "mental-health-crisis"
+    "rivers-casino-poker-room/",
+    "blog/rivers-casino-des-plaines-poker-room/",
+    "blog/rivers-casino-chicago-poker-room/",
+    "blog/rivers-casino-pittsburgh-poker-room/", 
+    "blog/poker-tournaments-rivers-casino/",
+    "blog/poker-at-rivers-casino/",
+    "blog/rivers-casino-des-plaines-address/",
+    "blog/rivers-casino-poker-room-chicago-hours/"
 ];
 // ==========================================
 
@@ -212,3 +215,4 @@ function setupAnalytics(gaId) {
     if (window.scrollY > 0) loadGA(); else window.addEventListener('scroll', loadGA, { once: true });
     window.addEventListener('mousemove', loadGA, { once: true });
 }
+
