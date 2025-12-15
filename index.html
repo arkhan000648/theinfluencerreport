@@ -22,6 +22,11 @@
         /* HEADER */
         .site-header nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 5%;background-color:var(--bg-dark);border-bottom:1px solid var(--border);height:80px;position:relative;z-index:100}
         .logo{font-weight:700;font-size:1.5rem;color:#fff;z-index:101}
+        @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 1.2rem !important;
+    }
+}
         .nav-links{display:flex;justify-content:space-around;list-style:none;gap:20px}
         .nav-links li{margin:0 5px}
         .nav-links a{color:var(--text-main);font-weight:600;font-size:1rem;position:relative}
@@ -161,4 +166,5 @@
     <script src="script.js" defer></script>
 </body>
 </html>
+
 
