@@ -1,0 +1,83 @@
+{
+  "siteTitle": "The Influencer Report",
+  "siteUrl": "https://theinfluencerreport.org",
+  "favicon": "/theinfluencerreporticon.png",
+  "copyright": "© 2025 The Influencer Report. An analytical look into modern creator culture.",
+  "enable404": false,
+  "gaId": "G-BWMRK5BGM2",
+  "adsenseAuto": "",
+  "customCss": "",
+  "customHeadJs": "",
+  "verifications": [
+    "<meta name=\"google-site-verification\" content=\"EM0OBoDyjSRn1QZrgJfrES0jteISWWF_palmPvGcSfM\" />"
+  ],
+  "headerMenu": [
+    {
+      "label": "Home",
+      "link": "/"
+    },
+    {
+      "label": "Blog",
+      "link": "/blog/"
+    },
+    {
+      "label": "About",
+      "link": "/about"
+    },
+    {
+      "label": "Contact",
+      "link": "/contact"
+    }
+  ],
+  "footerMenu": [
+    {
+      "label": "Disclaimer",
+      "link": "/disclaimer/"
+    },
+    {
+      "label": "Terms & Conditions",
+      "link": "/terms-and-conditions/"
+    },
+    {
+      "label": "Privacy Policy",
+      "link": "/privacy-policy/"
+    }
+  ],
+  "socialLinks": [
+    {
+      "label": "icon-twitter",
+      "link": "https://x.com/theinfluencer64"
+    },
+    {
+      "label": "icon-instagram",
+      "link": "https://www.instagram.com/the.influencerreport/"
+    },
+    {
+      "label": "icon-telegram",
+      "link": "https://t.me/theinfluencerreport"
+    }
+  ],
+  "authors": [
+    {
+      "id": "1765809500424",
+      "name": "Md Ashikuzzaman",
+      "image": "https://theinfluencerreport.org/images/Md-Ashikuzzaman.webp",
+      "bio": "is a digital culture analyst and writer specializing in the creator economy and social media trends. With over a decade of experience, they provide critical insights into the evolving landscape of online influence.",
+      "socials": [
+        {
+          "icon": "icon-twitter",
+          "link": "https://x.com/theinfluencer64"
+        },
+        {
+          "icon": "icon-instagram",
+          "link": "https://theinfluencerreport.org/www.linkedin.com/in/the-influencer-report"
+        },
+        {
+          "icon": "icon-link",
+          "link": "https://theinfluencerreport.org/"
+        }
+      ]
+    }
+  ],
+  "ads": []
+}
