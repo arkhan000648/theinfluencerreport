@@ -1,8 +1,10 @@
 # The Influencer Report - Robots.txt
-# All well-behaved crawlers are welcome to access all content.
+# Allow all search engines
 
 User-agent: *
-Allow: /
 
-# Location of the XML Sitemap
+Disallow: /admin/
+Disallow: /_cms/
+
+# Sitemap
 Sitemap: https://theinfluencerreport.org/sitemap.xml
