@@ -28,6 +28,11 @@ const SYSTEM_ASSETS = {
         width: 100%;
     }
 }
+@media screen and (max-width:480px){
+.logo {
+font-size: 1.2rem;
+}
+}
 
 /* 4. GENERAL STYLES */
 html{scroll-behavior:smooth;overflow-x:hidden}body{font-family:sans-serif;font-family:var(--font-family);background-color:var(--background-color);color:var(--text-color);line-height:1.7;overflow-x:hidden}
