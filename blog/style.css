@@ -27,6 +27,11 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     z-index: 100;
 }
 .logo { font-weight: 700; font-size: 1.5rem; color: #fff; z-index: 101; }
+@media screen and (max-width: 480px) {
+    .logo {
+        font-size: 1.2rem !important;
+    }
+}
 .nav-links { display: flex; justify-content: space-around; list-style: none; gap: 20px; }
 .nav-links li { margin: 0 5px; }
 .nav-links a { color: var(--text-main); font-weight: 600; font-size: 1rem; position: relative; }
