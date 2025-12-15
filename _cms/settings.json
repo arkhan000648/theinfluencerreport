@@ -6,7 +6,7 @@
   "enable404": true,
   "gaId": "G-BWMRK5BGM2",
   "adsenseAuto": "",
-  "customCss": "<style>\n@media screen and (max-width: 428px) {\n.logo {\nfont-size: 1.2rem;\n}\n}\n</style>",
+  "customCss": "",
   "customHeadJs": "",
   "verifications": [
     "<meta name=\"google-site-verification\" content=\"EM0OBoDyjSRn1QZrgJfrES0jteISWWF_palmPvGcSfM\" />"
