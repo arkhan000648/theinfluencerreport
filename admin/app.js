@@ -147,7 +147,7 @@ body.menu-open .burger { opacity: 0; pointer-events: none; }
     
     .burger{display:block;z-index:2001}
     .nav-close-btn{display:block}
-    .page-title{font-size:2rem}
+    .page-title{font-size:1.5rem}
     .author-bio{flex-direction:column;text-align:center}
     .footer-container{flex-direction:column;align-items:flex-start}
 }
