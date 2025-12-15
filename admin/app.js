@@ -28,11 +28,6 @@ const SYSTEM_ASSETS = {
         width: 100%;
     }
 }
-@media screen and (max-width:480px){
-.logo {
-font-size: 1.2rem;
-}
-}
 
 /* 4. GENERAL STYLES */
 html{scroll-behavior:smooth;overflow-x:hidden}body{font-family:sans-serif;font-family:var(--font-family);background-color:var(--background-color);color:var(--text-color);line-height:1.7;overflow-x:hidden}
@@ -147,7 +142,7 @@ body.menu-open .burger { opacity: 0; pointer-events: none; }
     
     .burger{display:block;z-index:2001}
     .nav-close-btn{display:block}
-    .page-title{font-size:1.5rem}
+    .page-title{font-size:2rem}
     .author-bio{flex-direction:column;text-align:center}
     .footer-container{flex-direction:column;align-items:flex-start}
 }
