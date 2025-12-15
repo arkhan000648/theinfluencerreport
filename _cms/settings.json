@@ -3,7 +3,7 @@
   "siteUrl": "https://theinfluencerreport.org",
   "favicon": "/theinfluencerreporticon.png",
   "copyright": "© 2025 The Influencer Report. An analytical look into modern creator culture.",
-  "enable404": true,
+  "enable404": false,
   "gaId": "G-BWMRK5BGM2",
   "adsenseAuto": "",
   "customCss": "",
