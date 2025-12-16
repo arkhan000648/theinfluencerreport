@@ -8,6 +8,10 @@
 // ==========================================
 const FEATURED_SLUGS = [
     "rivers-casino-poker-room/",
+    "blog/real-money-online-gambling-casinos-usa/",
+    "blog/online-casino-games-new-jersey/",
+    "blog/best-online-casino-fast-payout-usa/",
+    "blog/draftkings-casino-pa-promo/",
     "blog/rivers-casino-des-plaines-poker-room/",
     "blog/rivers-casino-chicago-poker-room/",
     "blog/rivers-casino-pittsburgh-poker-room/", 
@@ -215,4 +219,5 @@ function setupAnalytics(gaId) {
     if (window.scrollY > 0) loadGA(); else window.addEventListener('scroll', loadGA, { once: true });
     window.addEventListener('mousemove', loadGA, { once: true });
 }
+
 
