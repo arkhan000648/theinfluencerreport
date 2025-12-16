@@ -663,7 +663,14 @@ document.getElementById('save-btn').addEventListener('click', async () => {
     const path = `${folder}/index.html`;
 
     let contentHtml = tinymce.activeEditor.getContent();
+    
+    // 1. FIX LINKS (Add https:// to naked domains)
+    contentHtml = fixContentLinks(contentHtml); 
+    
+    // 2. HTTPS enforcement for images
     contentHtml = contentHtml.replace(/src="http:\/\//g, 'src="https://');
+    
+    // 3. Inject Ads
     contentHtml = injectAds(contentHtml, slug);
 
     const s = state.settings;
@@ -964,9 +971,15 @@ function initTinyMCE(cb) {
     if(tinymce.get('tinymce-editor')) tinymce.get('tinymce-editor').remove(); 
     tinymce.init({ 
         selector: '#tinymce-editor', 
+        
+        // ADD THESE 3 LINES TO PREVENT URL ISSUES:
+        relative_urls: false,
+        remove_script_host: false,
+        convert_urls: true,
+
         skin: 'oxide-dark', 
         content_css: 'dark', 
-        height: '100%', 
+        height: '100%',
         plugins: 'preview searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons', 
         toolbar: 'undo redo | blocks | bold italic | align | bullist numlist | link image media | code', 
         setup: (e) => { e.on('init', cb); e.on('change', () => e.save()); } 
@@ -1014,6 +1027,34 @@ function addSocialItem(l='', u='') {
 function addAdUnit(d={}) { 
     const c = document.getElementById('ads-repeater-container');
     if(c) c.insertAdjacentHTML('beforeend', `<div class="ad-unit-block"><button class="ad-remove-btn" onclick="this.parentElement.remove()"><i class="fa-solid fa-trash"></i></button><label class="schema-label">Ad Code</label><textarea class="schema-input ad-code-input" rows="2">${d.code||''}</textarea><div class="ad-meta-row"><div><select class="schema-input ad-place-input"><option value="header_bottom" ${d.placement==='header_bottom'?'selected':''}>Below Header (728x90)</option><option value="sticky_footer" ${d.placement==='sticky_footer'?'selected':''}>Sticky Footer (728x90)</option><option value="end" ${d.placement==='end'?'selected':''}>End Post (300x250)</option><option value="sticky_left" ${d.placement==='sticky_left'?'selected':''}>Left Sticky (160x600)</option><option value="sticky_right" ${d.placement==='sticky_right'?'selected':''}>Right Sticky (160x600)</option><option value="after_p_1" ${d.placement==='after_p_1'?'selected':''}>After Para 1</option><option value="after_p_2" ${d.placement==='after_p_2'?'selected':''}>After Para 2</option><option value="after_p_3" ${d.placement==='after_p_3'?'selected':''}>After Para 3</option></select></div><div><input class="schema-input ad-exclude-input" value="${d.exclude||''}" placeholder="Excl. slugs"></div></div></div>`); 
+}
+
+// --- HELPER: FIX BODY LINKS ---
+function fixContentLinks(html) {
+    const div = document.createElement('div');
+    div.innerHTML = html;
+    
+    div.querySelectorAll('a').forEach(a => {
+        let href = a.getAttribute('href');
+        if (!href) return;
+        
+        // Skip valid protocols, internal absolute paths, anchors, and email/tel
+        if (href.match(/^https?:\/\//) || 
+            href.startsWith('/') || 
+            href.startsWith('#') || 
+            href.startsWith('mailto:') || 
+            href.startsWith('tel:')) {
+            return;
+        }
+
+        // If it looks like a domain (has a dot) but missing protocol, add https://
+        // e.g. "google.com" -> "https://google.com"
+        if (href.includes('.')) {
+            a.setAttribute('href', 'https://' + href);
+        }
+    });
+
+    return div.innerHTML;
 }
 
 // NEW: Add Author Item with Nested Socials
